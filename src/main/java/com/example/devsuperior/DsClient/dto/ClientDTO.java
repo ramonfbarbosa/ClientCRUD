@@ -9,7 +9,7 @@ public class ClientDTO implements Serializable{
 	private Long id;
 	private String name;
 	private String cpf;
-	private Double inCome;
+	private Double income;
 	private Instant birthDate;
 	private Integer children;
 	
@@ -20,7 +20,7 @@ public class ClientDTO implements Serializable{
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
-		this.inCome = inCome;
+		this.income = inCome;
 		this.birthDate = birthDate;
 		this.children = children;
 	}
@@ -50,11 +50,11 @@ public class ClientDTO implements Serializable{
 	}
 
 	public Double getInCome() {
-		return inCome;
+		return income;
 	}
 
 	public void setInCome(Double inCome) {
-		this.inCome = inCome;
+		this.income = inCome;
 	}
 
 	public Instant getBirthDate() {
