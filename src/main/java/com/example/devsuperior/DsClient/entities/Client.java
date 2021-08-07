@@ -29,11 +29,11 @@ public class Client implements Serializable{
 	public Client() {
 	}
 
-	public Client(Long id, String name, String cpf, Double inCome, Instant birthDate, Integer children) {
+	public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
-		this.income = inCome;
+		this.income = income;
 		this.birthDate = birthDate;
 		this.children = children;
 	}
@@ -62,11 +62,11 @@ public class Client implements Serializable{
 		this.cpf = cpf;
 	}
 
-	public Double getInCome() {
+	public Double getIncome() {
 		return income;
 	}
 
-	public void setInCome(Double inCome) {
+	public void setIncome(Double inCome) {
 		this.income = inCome;
 	}
 
