@@ -10,6 +10,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.example.devsuperior.DsClient.dto.ClientDTO;
@@ -67,5 +69,10 @@ public class ClientService {
 		} catch(DataIntegrityViolationException e) {
 			throw new DatabaseException("Integrity violation");
 		}
+	}
+
+	public Page<ClientDTO> findAllPaged(PageRequest pageRequest){
+		Page<Client> page = repository.findAll(pageRequest);
+		return page.map(x -> new ClientDTO(x));
 	}
 }

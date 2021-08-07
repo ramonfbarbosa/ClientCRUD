@@ -60,11 +60,11 @@ public class ClientDTO implements Serializable{
 		this.cpf = cpf;
 	}
 
-	public Double getInCome() {
+	public Double getIncome() {
 		return income;
 	}
 
-	public void setInCome(Double inCome) {
+	public void setIncome(Double inCome) {
 		this.income = inCome;
 	}
 
