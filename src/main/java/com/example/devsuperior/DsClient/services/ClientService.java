@@ -1,8 +1,6 @@
 package com.example.devsuperior.DsClient.services;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
@@ -26,9 +24,10 @@ public class ClientService {
 	@Autowired
 	private ClientRepository repository;
 
-	public List<ClientDTO> findAll() {
-		List<Client> list = repository.findAll();
-		return list.stream().map(x -> new ClientDTO(x)).collect(Collectors.toList());
+	@Transactional
+	public Page<ClientDTO> findAllPaged(PageRequest pageRequest){
+		Page<Client> page = repository.findAll(pageRequest);
+		return page.map(x -> new ClientDTO(x));
 	}
 
 	@Transactional()
@@ -71,8 +70,4 @@ public class ClientService {
 		}
 	}
 
-	public Page<ClientDTO> findAllPaged(PageRequest pageRequest){
-		Page<Client> page = repository.findAll(pageRequest);
-		return page.map(x -> new ClientDTO(x));
-	}
 }
